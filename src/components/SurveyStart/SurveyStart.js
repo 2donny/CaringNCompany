@@ -16,7 +16,7 @@ class SurveyStart extends React.Component {
                     <h2>
                         <span style={{textAlign: "center"}}>케어링!</span> <br/>
                         "저희 부모님을 부양하는 것만으로도 
-                        정부에서 월 150 만원씩 지원해준다구요?"</h2>
+                        정부에서 <br/> 월 150 만원씩 지원해준다구요?"</h2>
                 </div>
                 <div className="Start-intro">
                     <p>
