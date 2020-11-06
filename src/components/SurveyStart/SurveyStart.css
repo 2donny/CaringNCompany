@@ -1,11 +1,40 @@
 .SurveyStart {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 2px 3px 0 rgba(0,0,0,0.08)
 
 }
-
 .Start-header {
-
+    margin: 0 auto;
+    width: 418px;
+    height: 246px;
+    margin-top: 12px;
+    line-height: 40px;
+}
+.Start-intro {
+    margin: auto;
+    width: 418px;
 }
 
-.Start-intro {
-    
+
+.Start-header span {
+    color: gray;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.Start-intro p {
+    line-height: 24px;
+    color: rgb(41, 40, 40);
+    font-size: 16px;
+    font-weight: 500;
+}
+.Start-intro span {
+    color: #848484;
+    font-size: 12px;
+    font-family: inherit;
+    display: block;
+    font-weight: 500;
+    margin-top: 20px;
 }

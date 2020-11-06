@@ -6,7 +6,9 @@ class Layout extends React.Component {
     render() {
         return (
             <div className="Layout">
-                 {this.props.children}
+                <div className="survey-contents-inner">
+                    {this.props.children}
+                </div>
                  <Footer />
             </div>
         )
