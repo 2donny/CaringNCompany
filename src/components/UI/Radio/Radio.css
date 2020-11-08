@@ -1,0 +1,12 @@
+.Radio {
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+}
+
+.Radio-contents {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 5px 10px;
+}
+

@@ -1,0 +1,8 @@
+.SurveyProgress {
+    height: 4px;
+    background-color: #eee;
+}
+.progress-rate {
+    background-color: #e26d59;
+    height: 4px;
+}

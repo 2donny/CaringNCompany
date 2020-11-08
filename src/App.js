@@ -11,16 +11,8 @@ class App extends React.Component {
       <div className="App">
         <Layout>
           <Switch>
-            <Route path='/survey/1/a' component={SurveyContents}/>
-            <Route path='/survey/1/b' />
-            <Route path='/survey/1/c' />
-
-            <Route path='/survey/2' />
-
-            <Route path='/survey/3/a' />
-            <Route path='/survey/3/b' />
-            <Route path='/survey/3/c' />
-            <Route path='/' component={SurveyStart}/>
+            <Route path="/survey/:questionNum" component={SurveyContents} />
+            <Route path='/' exact component={SurveyStart}/>
           </Switch>
         </Layout>
       </div>

@@ -1,0 +1,45 @@
+.SurveyQuestion {
+    padding-top: 36px;
+    margin: 0 auto;
+    width: 670px;
+}
+
+.SurveyQuestion em {
+    font-size: 16px;
+    font-weight: 700;
+    color: #999;
+}
+
+.SurveyQuestion h2 {
+    position: relative;
+    padding-top: 10px 0 10px;
+    line-height: 1;
+    font-size: 27px;
+    font-weight: 700;
+    color: #333;
+}
+
+.baseline {
+    margin: 10px 0 20px;
+    border: 1px solid lightgray;
+}
+.SurveyQuestion span {
+    color: #999;
+    font-size: 15px;
+    font-family: inherit;
+    display: block;
+    padding-bottom: 10px;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 1023px) {
+    .SurveyQuestion {
+        margin: 0;
+        padding: 30px;
+    }
+    .SurveyQuestion h2 {
+        line-height: 1;
+        font-size: 30px;
+
+    }
+}
