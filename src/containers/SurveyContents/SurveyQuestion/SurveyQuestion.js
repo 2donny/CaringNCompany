@@ -12,8 +12,8 @@ function SurveyQuestion({questionNum}) {
         description = '연세에 따라 보조금의 등금이 달라집니다.';
         radio = (
             <>
-                <Radio contents="65세 이상"/>
-                <Radio contents="65세 미만"/>
+                <Radio ans='1' contents="65세 이상"/> 
+                <Radio ans='2' contents="65세 미만"/>
             </>
         )
     }else if (questionNum === '2') {
@@ -21,15 +21,15 @@ function SurveyQuestion({questionNum}) {
         description = '앓고 계신 질환이 없다면 \'없음\' 을 선택해주세요.';
         radio = (
             <>
-                <Radio contents="치매"/>
-                <Radio contents="알츠하이머"/>
-                <Radio contents="뇌출혈/뇌내출혈"/>
-                <Radio contents="뇌경색증"/>
-                <Radio contents="뇌중풍"/>
-                <Radio contents="파킨슨병"/>
-                <Radio contents="퇴행성 질환"/>
-                <Radio contents="기타 질환"/>
-                <Radio contents="없음"/>
+                <Radio ans='3' contents="치매"/>
+                <Radio ans='4' contents="알츠하이머"/>
+                <Radio ans='5' contents="뇌출혈/뇌내출혈"/>
+                <Radio ans='6' contents="뇌경색증"/>
+                <Radio ans='7' contents="뇌중풍"/>
+                <Radio ans='8' contents="파킨슨병"/>
+                <Radio ans='9' contents="퇴행성 질환"/>
+                <Radio ans='10' contents="기타 질환"/>
+                <Radio ans='11' contents="없음"/>
             </>
         )
     } else if (questionNum === '3') { //질문 : 생활에 있어서 어느 정도 도움을 필요로 하시나요?
@@ -37,10 +37,10 @@ function SurveyQuestion({questionNum}) {
         description = '';
         radio = ( // 이것들은 전부 질문에 대한 답의 Radio이다.
             <> 
-                <Radio contents="거동이 어려워 거의 누워 계십니다."/>
-                <Radio contents="전적인 도움 없이는 일상생활이 어렵습니다."/>
-                <Radio contents=" 일상생활에 있어서 부분적인 도움이 필요합니다."/>
-                <Radio contents="가사 일이나 외출의 경우에 만 도움이 필요합니다."/>
+                <Radio ans='12' contents="거동이 어려워 거의 누워 계십니다."/>
+                <Radio ans='13' contents="전적인 도움 없이는 일상생활이 어렵습니다."/>
+                <Radio ans='14' contents=" 일상생활에 있어서 부분적인 도움이 필요합니다."/>
+                <Radio ans='15' contents="가사 일이나 외출의 경우에 만 도움이 필요합니다."/>
             </>
         )
     } else if (questionNum === '4') {
@@ -48,15 +48,15 @@ function SurveyQuestion({questionNum}) {
         description = '';
         radio = (
             <>
-                <Radio contents="배우자"/>
-                <Radio contents="자녀"/>
-                <Radio contents="며느리/사위"/>
-                <Radio contents="형제자매"/>
-                <Radio contents="손자/외손자"/>
-                <Radio contents="손자 며느리/사위"/>
-                <Radio contents="처남/처형/처제"/>
-                <Radio contents="시부모/시동생"/>
-                <Radio contents="기타"/>
+                <Radio ans='16' contents="배우자"/>
+                <Radio ans='17' contents="자녀"/>
+                <Radio ans='18' contents="며느리/사위"/>
+                <Radio ans='19' contents="형제자매"/>
+                <Radio ans='20' contents="손자/외손자"/>
+                <Radio ans='21' contents="손자 며느리/사위"/>
+                <Radio ans='22' contents="처남/처형/처제"/>
+                <Radio ans='23' contents="시부모/시동생"/>
+                <Radio ans='24' contents="기타"/>
             </>
         )
     } else if (questionNum === '5') {
@@ -64,8 +64,8 @@ function SurveyQuestion({questionNum}) {
         description = '최대 금액을 결정하는 중요한 요소입니다.';
         radio = ( //이 대답은  전 대답이 배우자 / 기타가족 중에 무엇을 선택했느냐에 따라 출력하는 아웃풋을 달리해야함.
             <>
-                <Radio contents="네"/>
-                <Radio contents="아니요"/>
+                <Radio ans='25' contents="네"/>
+                <Radio ans='26' contents="아니요"/>
             </>
         )
     }else if (questionNum === '6') {
@@ -73,8 +73,8 @@ function SurveyQuestion({questionNum}) {
         description = '';
         radio = ( 
             <>
-                <Radio contents="있음"/>
-                <Radio contents="없음"/>
+                <Radio ans='27' contents="있음"/>
+                <Radio ans='28' contents="없음"/>
             </>
         )
     }else {
@@ -85,7 +85,7 @@ function SurveyQuestion({questionNum}) {
            <section className="question-section">
                 <em>질문 {questionNum}</em>
                 <h2>{main}</h2>
-                <span>{description}</span>
+                <p>{description}</p>
                 <div className="baseline"></div>
                 {radio}
            </section>

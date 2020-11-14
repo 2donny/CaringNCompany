@@ -1,6 +1,7 @@
 import React from 'react';
 import './Radio.css';
 import Checkbox from '@material-ui/core/Checkbox';
+import {connect} from 'react-redux';
 
 
 class Radio extends React.Component {
@@ -9,29 +10,34 @@ class Radio extends React.Component {
     }
     toggleCheckbox = (event) => {
         this.setState({checked: event.target.checked})
-        console.log(event.target);
+        let ans = parseInt(this.props.ans);
+        if(event.target.checked === true) { //check일 때만 dispatching 해서 해당 id만 store에 저장한다.
+            this.props.checked(ans); //이 Radio의 ans를 넘긴다.
+        }else { // 체크를 풀면 store에 저장된 1 값을 0 으로 돌린다.
+            this.props.unchecked(ans);
+        }
     }
     render() {
-        let inputValue = this.props.contents;
-        if(inputValue === '65세 이상') {
-            inputValue = 'MoreThan65';
-        }else if (inputValue === '65세 미만') {
-            inputValue = 'LessThan65';
-        }
-
+        console.log(this.state.checked);
+        // console.log('ans : ' + this.props.ans); // Radio의 answer에 따라 순서대로 번호부여
         return (
             <div className="Radio">
                 <Checkbox 
-                    style={{width: 25, height: 25, padding: 15}}
-                    color="primary"
+                    style={{width: 25, height: 25, padding: 15, color: 'lightsalmon'}}
                     checked={this.state.checked}
                     onChange={this.toggleCheckbox}
-                    value={inputValue}
-                    />
+                    value={this.props.ans}
+                />
                 <div className="Radio-contents"> {this.props.contents} </div>
             </div>
         )
     }
 }
 
-export default Radio;
+const mapDispatchToProps = dispatch => {
+    return {
+        checked: (ans) => dispatch({type: 'CHECKED', id: ans}),
+        unchecked: (ans) => dispatch({type: 'UNCHECKED', id: ans})
+    }
+}
+export default connect(null, mapDispatchToProps)(Radio);

@@ -3,7 +3,6 @@ import './SurveyHeader.css';
 
 function SurveyHeader({questionNum}) {
     let questionNumber = parseInt(questionNum); //string 값을 integer로 바꾸기
-    console.log(questionNumber);
     let ul = null;
     if(questionNumber >= 1 && questionNumber <= 3) {
         ul = (
