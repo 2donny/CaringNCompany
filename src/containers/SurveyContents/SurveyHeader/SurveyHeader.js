@@ -11,6 +11,7 @@ function SurveyHeader({questionNum}) {
                     <li className="on"><span>노인장기요양보험 <br/>가능여부</span></li>
                     <li><span>보호자 가능 여부</span></li>
                     <li><span>최대 금액</span></li>
+                    <li><span>기타 정보</span></li>
                 </ul>
             </>
         )
@@ -21,6 +22,18 @@ function SurveyHeader({questionNum}) {
                     <li><span>노인장기요양보험 <br/>가능여부</span></li>
                     <li className="on"><span>보호자 가능 여부</span></li>
                     <li><span>최대 금액</span></li>
+                    <li><span>기타 정보</span></li>
+                </ul>
+            </>
+        )
+    } else if(questionNum >=5 && questionNum <= 6){
+        ul = (
+            <>
+                <ul>
+                    <li><span>노인장기요양보험 <br/>가능여부</span></li>
+                    <li><span>보호자 가능 여부</span></li>
+                    <li className="on"><span>최대 금액</span></li>
+                    <li><span>기타 정보</span></li>
                 </ul>
             </>
         )
@@ -30,7 +43,8 @@ function SurveyHeader({questionNum}) {
                 <ul>
                     <li><span>노인장기요양보험 <br/>가능여부</span></li>
                     <li><span>보호자 가능 여부</span></li>
-                    <li className="on"><span>최대 금액</span></li>
+                    <li ><span>최대 금액</span></li>
+                    <li className="on"><span>기타 정보</span></li>
                 </ul>
             </>
         )

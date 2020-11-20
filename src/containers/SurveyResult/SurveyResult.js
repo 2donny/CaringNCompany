@@ -7,12 +7,9 @@ import ResultPage from './ResultPage/ResultPage';
 class SurveyResult extends React.Component {
     componentDidMount() {
         this.props.AnalyzeStart(); // 분석 시작.
-
-        // state가 전부 null이면 Redirect to='/'시키기.
-        
         setTimeout(() => {
             this.props.Analyze_Finished();
-        }, 2000); // 2초 후에 보여주자.
+        }, 3000); // 2초 후에 보여주자.
     } 
 
     render() {
