@@ -3,29 +3,25 @@ import './SurveyButton.css';
 import Button from '../../../components/UI/Button/Button';
 import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
+import axios from '../../../axios-results';
 // import SurveyErrormsg from '../SurveyErrormsg/SurveyErrormsg';
 
 class SurveyButton extends React.Component {
     state = {
         redirect: null,
-        errmsg: null
     }
     
-    componentDidMount() { // 각 라우터에서 새로고침을 하면, 마운트가 되니까 시작페이지(/)로 push.
-    }
     Redirection = () => {
         if(this.props.routerProps.match.params.questionNum === '1') {
             console.log('Redirected!!');
             this.setState({redirect: true});
         }
-        this.props.ReturnBtnClicked();
     }
     NextButtonClicked = (event) => {
         event.preventDefault();
-        this.props.NextBtnClicked();
-
         let questionNumstr = this.props.routerProps.match.params.questionNum; //현재 이 라우터의 QuestionNum
         let questionNum = parseInt(questionNumstr);
+
         if(questionNum < 1) {
             return null;
         }
@@ -40,56 +36,116 @@ class SurveyButton extends React.Component {
             console.log('nextbtnClicked!');
             alert('적어도 하나를 선택해주세요')
         }else { //sum이 1 이상이면, 적어도 하나 체크된 것
+            console.log('questionNum : ' + questionNum)
             if(questionNum === 1) {
                 if(sum === 2) { // 2개 이상 복수 선택할 때 alert() 시키기.
                     alert('한 가지만 선택해주세요');
                     return null;
                 }
+            }else if(questionNum === 2) { 
+                if(this.props.store.q2.a11 === 1) { //2번 질문에서 없음 박스를 누르면, 나머지 박스는 하나도 체크되면 안됨.
+                    if(sum === 1) { //없음 항목 하나만 선택됐을 때
+                        this.props.props.history.push('/survey/' + (questionNum+1));
+                    }else {
+                        alert('없음 항목만 선택해주세요.');    
+                        return null;
+                    }
+                }
+            }else if(questionNum === 3) {
+                if(sum > 1) { 
+                    alert('한 가지만 선택해주세요.');
+                    return null;
+                }
+            }else if(questionNum === 4) {
+                if(this.props.store.q4.a24 === 1) {
+                    if(sum === 1) { //기타 항목 하나만 선택됐을 때
+                        this.props.props.history.push('/survey/' + (questionNum+1));
+                    }else {
+                        alert('기타 항목만 선택해주세요.');
+                        return null;
+                    }
+                }
+            }else if(questionNum === 5) {
+                if(sum > 1) {
+                    alert('한 가지만 선택해주세요.');
+                    return null;   
+                }
+            }else if(questionNum === 6) {
+                if(sum > 1) {
+                    alert('한 가지만 선택해주세요.');
+                    return null;   
+                }
+            }else {
+                return null;
             }
             this.props.props.history.push('/survey/' + (questionNum+1));
         }
-
-        
     }
+
+    FinalButtonClicked = () => {
+        let questionNumstr = this.props.routerProps.match.params.questionNum; //현재 이 라우터의 QuestionNum
+        let questionNum = parseInt(questionNumstr);
+        if(questionNum === 7) {  // 7번 질문은 여기로 바로옴.
+            let PN_length = this.props.phone_num.length;
+            if(PN_length === 11) { //올바르게 전화번호 입력받음.
+                let phone_num = this.props.phone_num;
+                this.props.register_phone_num(phone_num);
+            }else { 
+                alert('전화번호를 올바르게 입력해주세요.');
+                return null;
+            }
+        }
+        const results = {
+            ...this.props.store
+        }
+        axios.post('/results.json', results)
+            .then(res => {
+                console.log(res);
+                console.log(res.data.name);
+                this.props.fetch_Customer_ID(res.data.name);
+            })
+            .catch(err => console.log(err));
+        this.props.routerProps.history.push('/Result');
+    }
+
     render() {
-        console.log('rendered!');
-        let questionNum = this.props.routerProps.match.params.questionNum; //string인 question Num을 가져옴.
-        let formerQuestion = parseInt(questionNum) - 1;
+        let questionNum = this.props.questionNum;
+        questionNum = parseInt(questionNum)
+        let formerQuestion = questionNum - 1;
         let redirection = null;
         if(this.state.redirect === true) {
             redirection = <Redirect to="/"/>
         }
-        
-        // console.log('ERRMSG : ' + this.state.errmsg);
-        // let ERRMSG = null
-        // if(this.state.errmsg) {
-        //     ERRMSG = <SurveyErrormsg errMsg={this.state.errmsg}/>
-        // }
+
+        let nextButton = <Button clicked={this.NextButtonClicked} btnType='start'>다음</Button>
+        if(questionNum === 7) {
+            nextButton = <Button clicked={this.FinalButtonClicked} btnType='start'>결과보기</Button>
+        }
         return (
             <div className="SurveyButton">
                 {redirection}
                 <Link to={'/survey/' + String(formerQuestion)}>
                     <Button clicked={this.Redirection} btnType='return'>이전</Button>
                 </Link>
-                <Button clicked={this.NextButtonClicked} btnType='start'>다음</Button>
+                {nextButton}
             </div>
         )
     }
     
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = store => {
     return {
-        store: state.results,
-        hasErrMsg: state.results.hasErrMsg,
-        nextbtnClicked: state.results.nextbtnClicked
+        store: store.survey.results,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        NextBtnClicked: () => dispatch({type: 'NEXTBUTTONCLICKED'}), //이 액션을 취할 때, 이 버튼컴포넌트로 들어온 (checked)정보들을 store에 저장해야한다.
-        ReturnBtnClicked: () => dispatch({type: 'RETURNBUTTONCLICKED'}), //이전 버튼을 누르는 건, store에 저장했던 질문에 해당하는 만큼만의 정보(Checked)를 지워버리면됨. 
+        checked: (ans) => dispatch({type: 'CHECKED', id: ans}),
+        unchecked: (ans) => dispatch({type: 'UNCHECKED', id: ans}),
+        register_phone_num: (P_Num) => dispatch({type: 'ADD_PHONE_NUMBER', P_Num: P_Num}),
+        fetch_Customer_ID: (id) => dispatch({type: 'FETCH_CUSTOMER_ID', ID: id}),
     }
 }
 

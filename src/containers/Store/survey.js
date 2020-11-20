@@ -1,7 +1,6 @@
 const initialState = {
     results: {
-        nextbtnClicked: false,
-        hasErrMsg: false,
+        phone_number: '',
         q1: { //1번 질문(question)
             a1: null, //1번 답(ans)
             a2: null,
@@ -45,7 +44,7 @@ const initialState = {
     }
 }
 
-const reducer = (state = initialState, action) => {
+const SurveyrRducer = (state = initialState, action) => {
     switch(action.type) {
         case 'CHECKED':
             let newState = {
@@ -205,29 +204,22 @@ const reducer = (state = initialState, action) => {
             return {
                 results: {
                     ...state.results,
-                    nextbtnClicked: true
                 }
             }
         case 'INIT_NEXT_BUTTON':
             return {
                 results: {
                     ...state.results,
-                    nextbtnClicked: false
                 }
             }
-        case 'RETURNBUTTONCLICKED':
-        case 'ERROR_MESSAGE_ON':
-            return {
-                results: {
-                    ...state.results,
-                    hasErrMsg: true,
-                }
+        case 'ADD_PHONE_NUMBER':
+            const new_State = {
+                ...state.results
             }
-        case 'INIT_ERROR_MESSAGE':
             return {
                 results: {
-                    ...state.results,
-                    hasErrMsg: false,
+                    ...new_State,
+                    phone_number: action.P_Num
                 }
             }
         default: 
@@ -235,4 +227,4 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-export default reducer;
+export default SurveyrRducer;

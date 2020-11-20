@@ -1,6 +1,7 @@
 import React from 'react';
 import './SurveyQuestion.css';
 import Radio from '../../../components/UI/Radio/Radio';
+import TextField from '../../../components/UI/TextField/TextField';
 
 
 class SurveyQuestion extends React.Component {
@@ -83,7 +84,16 @@ class SurveyQuestion extends React.Component {
                     <Radio ans='28' contents="없음"/>
                 </>
             )
-        }else {
+        }else if (questionNum === '7'){
+            main = '검사 결과를 받아보세요.';
+            description = '휴대폰 번호를 적어주세요. 케어링이 상담해드립니다! (-없이 적어주세요.)';
+            radio = ( 
+                <>
+                    <TextField onChange={this.props.onChange}/>
+                </>
+            )
+        }
+        else {
             radio = <p>There's an error.</p>
         }
 

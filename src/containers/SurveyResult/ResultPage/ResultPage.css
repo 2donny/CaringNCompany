@@ -1,0 +1,60 @@
+.ResultPage {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.result-button {
+    position: fixed;
+    left: 25px;
+    right: 25px;
+    bottom: 70px;
+    text-align: center;
+    z-index: 100;
+}
+
+.text {
+    position: relative;
+    padding-left: 10px;
+    padding-right: 80px;
+    margin-bottom: 14px;
+}
+
+.text-contents p{
+    line-height: 23px;
+    font-weight: 400;
+    color: #414141;
+}
+.text-contents span{
+    font-size: 16px;
+    line-height: 20px;
+}
+.highlight {
+    background-color: rgba(230,230,50,0.5);
+}
+
+.red {
+    appearance: none;
+    display: inline-block;
+    width: 418px;
+    padding: 10 36px;
+    min-width: 74px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    outline: none;
+    vertical-align: middle;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-right: 20px;
+    max-width: 290px;
+    background-color: #e26d59;
+    border: none;
+    text-decoration: none;
+    color: #fff;
+}
+
+.baseline {
+    margin: 10px 0 20px;
+    border: 1px solid lightgray;
+}

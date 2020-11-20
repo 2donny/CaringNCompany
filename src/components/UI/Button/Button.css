@@ -29,3 +29,11 @@
     font-size: 14px;
     border: 1px solid lightgray;
 }
+
+.red {
+    max-width: 290px;
+    width: 100%;
+    background-color: #e26d59;
+    border: none;
+    color: #fff;
+}

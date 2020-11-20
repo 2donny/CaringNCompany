@@ -3,13 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import {createStore } from 'redux';
+import {createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-// import thunk from 'react-thunk';
-import reducer from './containers/Store/reducer';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import SurveyrRducer from './containers/Store/survey';
+import ResultReducer from './containers/Store/results';
 
-const store = createStore(reducer, composeWithDevTools()); 
+const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
+
+const rootReducer = combineReducers({
+  survey: SurveyrRducer,
+  results: ResultReducer,
+})
+
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))); 
 
 const app = (
     <Provider store={store}>
