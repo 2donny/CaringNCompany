@@ -17,16 +17,24 @@ class Radio extends React.Component {
             this.props.unchecked(ans);
         }
     }
+    afterRender = () => { //언제나 Radio가 렌더링될 때 check된 상태에 따라 Store에 dispatching
+        if(this.state.checked) {
+            let ans = parseInt(this.props.ans);
+            this.props.checked(ans);
+        }else {
+            let ans = parseInt(this.props.ans);
+            this.props.unchecked(ans);
+        }
+    }
     render() {
-        console.log(this.state.checked);
-        // console.log('ans : ' + this.props.ans); // Radio의 answer에 따라 순서대로 번호부여
+        this.afterRender();
         return (
             <div className="Radio">
+                {/* <input type='checkbox'></input> */}
                 <Checkbox 
                     style={{width: 25, height: 25, padding: 15, color: 'lightsalmon'}}
                     checked={this.state.checked}
                     onChange={this.toggleCheckbox}
-                    value={this.props.ans}
                 />
                 <div className="Radio-contents"> {this.props.contents} </div>
             </div>

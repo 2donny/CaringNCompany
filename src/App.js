@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Layout from './components/Layout/Layout';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import SurveyStart from './components/SurveyStart/SurveyStart';
 import SurveyContents from './containers/SurveyContents/SurveyContents';
 
@@ -13,6 +13,7 @@ class App extends React.Component {
           <Switch>
             <Route path="/survey/:questionNum" component={SurveyContents} />
             <Route path='/' exact component={SurveyStart}/>
+            <Redirect path='*' to='/'/>
           </Switch>
         </Layout>
       </div>
