@@ -9,6 +9,7 @@ import axios from '../../../axios-results';
 class SurveyButton extends React.Component {
     state = {
         redirect: null,
+        PNum_loading: null
     }
     
     Redirection = () => {
@@ -81,31 +82,36 @@ class SurveyButton extends React.Component {
             this.props.props.history.push('/survey/' + (questionNum+1));
         }
     }
-
-    FinalButtonClicked = () => {
+    
+    
+    FinalButtonClicked = () =>  {
         let questionNumstr = this.props.routerProps.match.params.questionNum; //현재 이 라우터의 QuestionNum
         let questionNum = parseInt(questionNumstr);
+        let phone_number_props = this.props.phone_number_props;
         if(questionNum === 7) {  // 7번 질문은 여기로 바로옴.
-            let PN_length = this.props.phone_num.length;
+            let PN_length = phone_number_props.length;
             if(PN_length === 11) { //올바르게 전화번호 입력받음.
-                let phone_num = this.props.phone_num;
-                this.props.register_phone_num(phone_num);
+                this.props.add_phone_num(phone_number_props);
+                const results = {
+                    ...this.props.store
+                }
+                if(this.props.phone_num) { // store에 phone_num이 생겼을 때 서버로 post한다.
+                    console.log('came!');
+                    axios.post('/results.json', results)
+                    .then(res => {
+                        console.log(res);
+                        console.log(res.data.name);
+                    })
+                    .catch(err => console.log(err))
+                    .finally(() => this.props.routerProps.history.push('/Result'));
+                }else {
+                    return null;
+                }
             }else { 
                 alert('전화번호를 올바르게 입력해주세요.');
                 return null;
             }
         }
-        const results = {
-            ...this.props.store
-        }
-        axios.post('/results.json', results)
-            .then(res => {
-                console.log(res);
-                console.log(res.data.name);
-                this.props.fetch_Customer_ID(res.data.name);
-            })
-            .catch(err => console.log(err));
-        this.props.routerProps.history.push('/Result');
     }
 
     render() {
@@ -137,6 +143,8 @@ class SurveyButton extends React.Component {
 const mapStateToProps = store => {
     return {
         store: store.survey.results,
+        phone_num: store.survey.results.phone_number,
+        PNum_loading: store.survey.results.PNum_loading,
     }
 }
 
@@ -144,8 +152,7 @@ const mapDispatchToProps = dispatch => {
     return {
         checked: (ans) => dispatch({type: 'CHECKED', id: ans}),
         unchecked: (ans) => dispatch({type: 'UNCHECKED', id: ans}),
-        register_phone_num: (P_Num) => dispatch({type: 'ADD_PHONE_NUMBER', P_Num: P_Num}),
-        fetch_Customer_ID: (id) => dispatch({type: 'FETCH_CUSTOMER_ID', ID: id}),
+        add_phone_num: (P_Num) => dispatch({type: 'ADD_PHONE_NUMBER', P_Num: P_Num}),
     }
 }
 

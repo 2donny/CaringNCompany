@@ -1,6 +1,7 @@
 const initialState = {
     results: {
         phone_number: '',
+        PNum_loading: null,
         q1: { //1번 질문(question)
             a1: null, //1번 답(ans)
             a2: null,
@@ -198,18 +199,6 @@ const SurveyrRducer = (state = initialState, action) => {
             return {
                 results: {
                     ...State
-                }
-            }
-        case 'NEXTBUTTONCLICKED':
-            return {
-                results: {
-                    ...state.results,
-                }
-            }
-        case 'INIT_NEXT_BUTTON':
-            return {
-                results: {
-                    ...state.results,
                 }
             }
         case 'ADD_PHONE_NUMBER':

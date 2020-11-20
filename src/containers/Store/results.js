@@ -5,12 +5,7 @@ const initialState = {
 
 const ResultReducer = (state=initialState, action) => {
     switch(action.type) {
-        case 'FETCH_CUSTOMER_ID':
-            return {
-                ...state,
-                id: action.ID
-            }
-        case 'ANALYZE_START':
+       case 'ANALYZE_START':
             return {
                 ...state,
                 loading: true

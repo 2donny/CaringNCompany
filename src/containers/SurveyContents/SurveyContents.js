@@ -32,7 +32,7 @@ class SurveyContents extends React.Component {
                 <SurveyHeader questionNum={this.props.match.params.questionNum}/>  {/* 여기 각각에 3개의 인자를 넘겨줘서, SurveyHeader*/}
                 <SurveyProgress questionNum={this.props.match.params.questionNum}/>
                 <SurveyQuestion onChange={this.onChangeHandler} questionNum={this.props.match.params.questionNum}/>
-                <SurveyButton questionNum={this.props.match.params.questionNum} phone_num={this.state.phone_number} props={this.props} routerProps={this.props}/>
+                <SurveyButton questionNum={this.props.match.params.questionNum} phone_number_props={this.state.phone_number} props={this.props} routerProps={this.props}/>
                  {/* 다음 버튼을 누르는 순간 currentCategoryNum, 
                 currentProgress, currentQuestionNum를 전부 증가시킨 후에, 
                 survey/1/b로 라우터를 옮긴다. 그리고 다시 app에서 이 컴포넌트 SureyContents를 호출한다.

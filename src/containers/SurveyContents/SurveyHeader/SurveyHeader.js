@@ -37,7 +37,7 @@ function SurveyHeader({questionNum}) {
                 </ul>
             </>
         )
-    } else {
+    } else { // questionNum이 7번일 때
         ul = (
             <>
                 <ul>

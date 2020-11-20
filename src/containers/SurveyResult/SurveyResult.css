@@ -1,7 +1,7 @@
 .SurveyResult {
     padding: 20px 0 42px;
     display: table;
-    width: 940px;
+    width: 80%;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 10px;
@@ -20,6 +20,7 @@
     margin: 10px 0;
     margin-bottom: 40px;
     color: #333;
+    text-align: center;
 }
 
 .SurveyResult-loading p {
@@ -28,26 +29,27 @@
     font-family: inherit;
     font-weight: 400;
     margin: 0;
+    text-align: center;
 }
 
 
-.SurveyResult-loading .em {
+.SurveyResult-loading .em,
+.SurveyResult-loading em{
     margin: 50px 0;
-    font-size: 15px;
+    display: block;
+    text-align: center;
 }
+
 @media only screen and (max-width: 1023px) {
     .SurveyResult {
         width: 100%;
         height: 100%;
+        margin-top: 30px;
         padding-top: 0px;
-    }
-    .SurveyResult-loading {
-        margin: 0;
-        padding: 30px;
     }
     .SurveyResult-loading h2 {
         line-height: 1;
         font-size: 30px;
-
+        text-align: center;
     }
 }

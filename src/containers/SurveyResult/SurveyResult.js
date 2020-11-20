@@ -9,7 +9,7 @@ class SurveyResult extends React.Component {
         this.props.AnalyzeStart(); // 분석 시작.
         setTimeout(() => {
             this.props.Analyze_Finished();
-        }, 3000); // 2초 후에 보여주자.
+        }, 5000); // 2초 후에 보여주자.
     } 
 
     render() {
@@ -29,7 +29,7 @@ class SurveyResult extends React.Component {
                                     최신 데이터를 기반으로 결과를 제공합니다.</em>
                                 
                             </div>
-                            <em style={{fontSize: '12px'}}>잠시만 기다려주십시오..</em>
+                            <em style={{fontSize: '12px', textAlign: 'center'}}>잠시만 기다려주십시오..</em>
                         </section>
                     ) : ( //loading이 끝나면
                         <>
