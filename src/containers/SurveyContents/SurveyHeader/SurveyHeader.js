@@ -8,10 +8,10 @@ function SurveyHeader({questionNum}) {
         ul = (
             <>
                 <ul>
-                    <li className="on"><span>노인장기요양보험 <br/>가능여부</span></li>
+                    <li className="on"><span>노인장기요양보험 <br /> 가능여부</span></li>
                     <li><span>보호자 가능 여부</span></li>
                     <li><span>최대 금액</span></li>
-                    <li><span>기타 정보</span></li>
+                    <li><span>기타 정보</span></li>
                 </ul>
             </>
         )

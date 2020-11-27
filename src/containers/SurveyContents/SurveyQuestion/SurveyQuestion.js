@@ -72,7 +72,7 @@ class SurveyQuestion extends React.Component {
             radio = ( //이 대답은  전 대답이 배우자 / 기타가족 중에 무엇을 선택했느냐에 따라 출력하는 아웃풋을 달리해야함.
                 <>
                     <Radio ans='25' contents="네"/>
-                    <Radio ans='26' contents="아니요"/>
+                    <Radio ans='26' contents="아니요"/>
                 </>
             )
         }else if (questionNum === '6') {
@@ -81,7 +81,7 @@ class SurveyQuestion extends React.Component {
             radio = ( 
                 <>
                     <Radio ans='27' contents="있음"/>
-                    <Radio ans='28' contents="없음"/>
+                    <Radio ans='28' contents="없음"/>
                 </>
             )
         }else if (questionNum === '7'){

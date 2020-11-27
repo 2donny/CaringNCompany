@@ -84,7 +84,8 @@ class SurveyButton extends React.Component {
     }
     
     
-    FinalButtonClicked = () =>  {
+    FinalButtonClicked = (event) =>  {
+        event.preventDefault();
         let questionNumstr = this.props.routerProps.match.params.questionNum; //현재 이 라우터의 QuestionNum
         let questionNum = parseInt(questionNumstr);
         let phone_number_props = this.props.phone_number_props;
@@ -99,8 +100,8 @@ class SurveyButton extends React.Component {
                     console.log('came!');
                     axios.post('/results.json', results)
                     .then(res => {
-                        console.log(res);
-                        console.log(res.data.name);
+                        // console.log(res);
+                        // console.log(res.data.name);
                     })
                     .catch(err => console.log(err))
                     .finally(() => this.props.routerProps.history.push('/Result'));
@@ -127,6 +128,7 @@ class SurveyButton extends React.Component {
         if(questionNum === 7) {
             nextButton = <Button clicked={this.FinalButtonClicked} btnType='start'>결과보기</Button>
         }
+        
         return (
             <div className="SurveyButton">
                 {redirection}

@@ -10,14 +10,17 @@ const useStyles = makeStyles((theme) => ({
       width: '25ch',
     },
   },
+  input: {
+    borderColor: 'lightsalmon'
+  }
 }));
 
-export default function BasicTextFields({onChange}) {
+export default function BasicTextFields({ onChange }) {
   const classes = useStyles();
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <TextField onChange={onChange} style={{fontSize: '22px', fontWeight: '600'}} id="outlined-basic" label="Phone number" variant="outlined" />
+    <form onSubmit={event => event.preventDefault()} className={classes.root} noValidate autoComplete="off">
+      <TextField onChange={onChange} color='primary' style={{fontSize: '22px', fontWeight: '600'}} id="outlined-basic" label="Phone number" variant="outlined" />
     </form>
   );
 }

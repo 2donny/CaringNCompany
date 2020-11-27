@@ -95,8 +95,9 @@ const SurveyrRducer = (state = initialState, action) => {
                 newState.q4.a18 = 1
             }else if(action.id === 19) {
                 newState.q4.a19 = 1
-            }
-            else if(action.id === 21) {
+            }else if(action.id === 20) {
+                newState.q4.a19 = 1
+            }else if(action.id === 21) {
                 newState.q4.a21 = 1
             }else if(action.id === 22) {
                 newState.q4.a22 = 1
@@ -172,8 +173,9 @@ const SurveyrRducer = (state = initialState, action) => {
                 State.q4.a18 = 0
             }else if(action.id === 19) {
                 State.q4.a19 = 0
-            }
-            else if(action.id === 21) {
+            }else if(action.id === 20) {
+                State.q4.a19 = 0
+            }else if(action.id === 21) {
                 State.q4.a21 = 0
             }else if(action.id === 22) {
                 State.q4.a22 = 0

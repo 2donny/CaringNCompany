@@ -10,23 +10,25 @@ class SurveyContents extends React.Component {
     state = {
         errmsg: null,
         clicked: false,
-        phone_number: ''
+        phone_number: '',
     }
     componentDidMount() {
-        console.log('mounted!');
         let page = this.props.match.params.questionNum;
         page = parseInt(page);
         if(page > 1) {  // 새로고침시 루트 페이지로 보내기.
+            this.props.history.push('/');
+        }
+
+        if(page < 1) { //http://localhost:3000/survey/-3 이런식으로 injection을 넣어도 루트 페이지로 redirection.
             this.props.history.push('/');
         }
     }
     onChangeHandler = (event) => {
         this.setState({phone_number: event.target.value});
     }
-
+    
     render() {
         // console.log(this.props.match.params.questionNum); //현재 이 라우터로 넘겨진 props의 question Number
-        console.log('phone number : ' + this.state.phone_number);
         return (
             <div className="SurveyContents">
                 <SurveyHeader questionNum={this.props.match.params.questionNum}/>  {/* 여기 각각에 3개의 인자를 넘겨줘서, SurveyHeader*/}
