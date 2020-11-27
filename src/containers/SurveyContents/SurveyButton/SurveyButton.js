@@ -51,6 +51,13 @@ class SurveyButton extends React.Component {
                         alert('없음 항목만 선택해주세요.');    
                         return null;
                     }
+                }else {
+                    if(sum === 1) {
+                        this.props.props.history.push('/survey/' + (questionNum+1));
+                    }else {
+                        alert('한 가지만 선택해주세요.');
+                        return null;
+                    }
                 }
             }else if(questionNum === 3) {
                 if(sum > 1) { 
@@ -63,6 +70,13 @@ class SurveyButton extends React.Component {
                         this.props.props.history.push('/survey/' + (questionNum+1));
                     }else {
                         alert('기타 항목만 선택해주세요.');
+                        return null;
+                    }
+                }else {
+                    if(sum === 1) {
+                        this.props.props.history.push('/survey/' + (questionNum+1));
+                    }else {
+                        alert('한 가지만 선택해주세요.');
                         return null;
                     }
                 }
@@ -97,7 +111,7 @@ class SurveyButton extends React.Component {
                     ...this.props.store
                 }
                 if(this.props.phone_num) { // store에 phone_num이 생겼을 때 서버로 post한다.
-                    console.log('came!');
+                    console.log(results);
                     axios.post('/results.json', results)
                     .then(res => {
                         // console.log(res);

@@ -46,7 +46,7 @@ class SurveyQuestion extends React.Component {
                 <> 
                     <Radio ans='12' contents="거동이 어려워 거의 누워 계십니다."/>
                     <Radio ans='13' contents="전적인 도움 없이는 일상생활이 어렵습니다."/>
-                    <Radio ans='14' contents=" 일상생활에 있어서 부분적인 도움이 필요합니다."/>
+                    <Radio ans='14' contents="일상생활에 있어서 부분적인 도움이 필요합니다."/>
                     <Radio ans='15' contents="가사 일이나 외출의 경우에 만 도움이 필요합니다."/>
                 </>
             )
@@ -89,7 +89,7 @@ class SurveyQuestion extends React.Component {
             description = '휴대폰 번호를 적어주세요. 케어링이 상담해드립니다! (-없이 적어주세요.)';
             radio = ( 
                 <>
-                    <TextField onChange={this.props.onChange}/>
+                    <TextField label="Phone number" variant="outlined" onChange={this.props.onChange}/>
                 </>
             )
         }
