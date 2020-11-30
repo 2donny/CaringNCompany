@@ -20,6 +20,7 @@ class adminPage extends React.Component {
     }
     btnClickHandler = () => {
         if(this.state.password == this.state.superKey) {
+            // 추가할 것 -- 입력값이 슈퍼키면 firebase로 token api를 발급받아서 localstorage에 저장하기.
             console.log('same');
             this.setState({loading: false, show: false}); //슈퍼키가 맞다면, 메인 페이지 보여주기.
         }else {
@@ -49,7 +50,7 @@ class adminPage extends React.Component {
         let modalContents = (
             <div className="modal--contents">
                 <h2>Please validate your super key.</h2>
-                <TextField onChange={this.onChangeHandler} label="Super key" variant="standard" />
+                <TextField type="password" onChange={this.onChangeHandler} label="Super key" variant="standard" />
                 <Button clicked={this.btnClickHandler} btnType="start"> Validation </Button>
             </div>
         )

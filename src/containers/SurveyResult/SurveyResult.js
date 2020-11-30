@@ -9,7 +9,7 @@ class SurveyResult extends React.Component {
         this.props.AnalyzeStart(); // 분석 시작.
         setTimeout(() => {
             this.props.Analyze_Finished();
-        }, 1000); // 2초 후에 보여주자.
+        }, 1000); // 5초 후에 보여주자.
     } 
 
     render() {

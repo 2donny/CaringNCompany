@@ -15,12 +15,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function BasicTextFields({ label, variant, onChange }) {
+export default function BasicTextFields({ type, label, variant, onChange }) {
   const classes = useStyles();
 
   return (
     <form onSubmit={event => event.preventDefault()} className={classes.root} noValidate autoComplete="off">
-      <TextField onChange={onChange} color='primary' style={{fontSize: '22px', fontWeight: '600'}} id={`${variant}-basic`} label={label} variant={variant} />
+      <TextField type={type} onChange={onChange} color='primary' style={{fontSize: '22px', fontWeight: '600'}} id={`${variant}-basic`} label={label} variant={variant} />
     </form>
   );
 }

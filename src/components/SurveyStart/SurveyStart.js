@@ -8,7 +8,9 @@ function SurveyStart() {
     return (
         <div className="SurveyStart">
             <div className="Start-header">
-                <img style={{marginTop: '20px', width: '80px'}} src={Logo} alt="케어링앤컴퍼니 로고"/>
+                <Link to='/admin'>
+                    <img style={{marginTop: '20px', width: '80px'}} src={Logo} alt="케어링앤컴퍼니 로고"/>
+                </Link>
                 <h2>
                     <span style={{textAlign: "center"}}>케어링!</span> <br/>
                     "저희 부모님을 부양하는 것만으로도 

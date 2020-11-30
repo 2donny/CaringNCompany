@@ -20,7 +20,8 @@
 }
 
 .text-contents p{
-    line-height: 23px;
+    line-height: 25px;
+    font-size: 14px;
     font-weight: 400;
     color: #414141;
 }
@@ -30,6 +31,10 @@
 }
 .highlight {
     background-color: rgba(230,230,50,0.5);
+}
+.highlight-red {
+    background-color: #ffb7b7;
+    font-size: 15px;
 }
 
 .red {

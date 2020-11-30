@@ -41,7 +41,7 @@ class SurveyQuestion extends React.Component {
             )
         } else if (questionNum === '3') { //질문 : 생활에 있어서 어느 정도 도움을 필요로 하시나요?
             main = '생활에 있어서 어느 정도 도움을 필요로 하시나요?';
-            description = '';
+            description = '선택지 중에서 한 가지만 선택해주세요.';
             radio = ( // 이것들은 전부 질문에 대한 답의 Radio이다.
                 <> 
                     <Radio ans='12' contents="거동이 어려워 거의 누워 계십니다."/>
@@ -52,7 +52,7 @@ class SurveyQuestion extends React.Component {
             )
         } else if (questionNum === '4') {
             main = ' 보호자와 대상 어르신은 어떤 관계인가요?';
-            description = '';
+            description = '*배우자 관계일 시 지원받는 최대 금액이 높아질 수 있습니다.';
             radio = (
                 <>
                     <Radio ans='16' contents="배우자"/>
@@ -77,7 +77,7 @@ class SurveyQuestion extends React.Component {
             )
         }else if (questionNum === '6') {
             main = '치매 및 기타 질환으로 인한 폭력성이 있으신가요?';
-            description = '';
+            description = '*어르신의 폭력성은 최대 금액을 결정합니다.';
             radio = ( 
                 <>
                     <Radio ans='27' contents="있음"/>
@@ -86,10 +86,10 @@ class SurveyQuestion extends React.Component {
             )
         }else if (questionNum === '7'){
             main = '검사 결과를 받아보세요.';
-            description = '휴대폰 번호를 적어주세요. 케어링이 상담해드립니다! (-없이 적어주세요.)';
+            description = '휴대 전화를 입력해주시면 케어링이 언제나 상담해드립니다! (-없이 적어주세요.)';
             radio = ( 
                 <>
-                    <TextField label="Phone number" variant="outlined" onChange={this.props.onChange}/>
+                    <TextField type="input" label="Phone number" variant="outlined" onChange={this.props.onChange}/>
                 </>
             )
         }
