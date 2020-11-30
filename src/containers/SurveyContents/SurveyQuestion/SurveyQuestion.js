@@ -68,7 +68,7 @@ class SurveyQuestion extends React.Component {
             )
         } else if (questionNum === '5') {
             main = '월 160시간 이상 일하고 계신가요?';
-            description = '최대 금액을 결정하는 중요한 요소입니다.';
+            description = '*최대 금액을 결정하는 중요한 요소입니다.';
             radio = ( //이 대답은  전 대답이 배우자 / 기타가족 중에 무엇을 선택했느냐에 따라 출력하는 아웃풋을 달리해야함.
                 <>
                     <Radio ans='25' contents="네"/>

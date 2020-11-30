@@ -9,7 +9,7 @@ function SurveyStart() {
         <div className="SurveyStart">
             <div className="Start-header">
                 <Link to='/admin'>
-                    <img style={{marginTop: '20px', width: '80px'}} src={Logo} alt="케어링앤컴퍼니 로고"/>
+                    <img className="Magic" src={Logo} alt="케어링앤컴퍼니 로고"/>
                 </Link>
                 <h2>
                     <span style={{textAlign: "center"}}>케어링!</span> <br/>

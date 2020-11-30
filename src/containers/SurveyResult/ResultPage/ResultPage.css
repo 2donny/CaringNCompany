@@ -7,9 +7,12 @@
     position: fixed;
     left: 25px;
     right: 25px;
-    bottom: 70px;
+    bottom: 33px;
     text-align: center;
     z-index: 100;
+}
+.result-button a {
+    box-shadow: 0 5px 4px 0 rgba(0,0,0,0.15);
 }
 
 .text {

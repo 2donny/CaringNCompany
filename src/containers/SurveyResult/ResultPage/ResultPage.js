@@ -86,7 +86,7 @@ class ResultPage extends React.Component {
                     {third_answer}
                 </div>
 
-                <section className="result-button inner">
+                <section className="result-button">
                     <a className='red' href="https://caring.co.kr/"><p>케어링 홈페이지 둘러보기</p></a>
                 </section>
             </div> 
