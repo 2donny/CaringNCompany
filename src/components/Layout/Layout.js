@@ -8,11 +8,11 @@ class Layout extends React.Component {
         let pathname = this.props.location.pathname;
         let survey_contents_inner = pathname;
         return (
-            <div className="Layout">
-                <div className={survey_contents_inner != '/admin' ? 'survey-contents-inner' : null}>
+            <div className={survey_contents_inner !== '/admin' ? 'Layout' : 'Layout admin'}>
+                <div className={survey_contents_inner !== '/admin' ? 'survey-contents-inner' : null}>
                     {this.props.children}
                 </div>
-                {survey_contents_inner != '/admin' ? <Footer /> : null}
+                {survey_contents_inner !== '/admin' ? <Footer /> : null}
             </div>
         )
     }

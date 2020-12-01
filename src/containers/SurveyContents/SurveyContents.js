@@ -18,7 +18,6 @@ class SurveyContents extends React.Component {
         if(page > 1) {  // 새로고침시 루트 페이지로 보내기.
             this.props.history.push('/');
         }
-
         if(page < 1) { //http://localhost:3000/survey/-3 이런식으로 injection을 넣어도 루트 페이지로 redirection.
             this.props.history.push('/');
         }

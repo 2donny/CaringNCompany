@@ -5,4 +5,5 @@
 .progress-rate {
     background-color: lightsalmon;
     height: 4px;
+    transition: all .3s ease-in;
 }

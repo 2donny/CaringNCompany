@@ -120,7 +120,7 @@ export default function DataTable({ data }) {
     }
     
   return (
-    <div className="data--table" style={{ height: 630, width: '110%' }}>
+    <div className="data--table">
       <DataGrid rows={rows} columns={columns} pageSize={10} checkboxSelection />
     </div>
   );
